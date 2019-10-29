@@ -8,6 +8,10 @@ app:
   - BITRISE_STEP_GIT_CLONE_URL: https://github.com/digitalrmdy/bitrise-step-unzip.git
 
 workflows:
+  ci:
+    before_run:
+      - audit-this-step
+      - test
   test:
     steps:
     - change-workdir:
