@@ -1,0 +1,47 @@
+#
+# A couple of useful guides & docs:
+#
+# - Main Bitrise CLI docs: https://github.com/bitrise-io/bitrise/tree/master/_docs
+# - Step Development Guideline: https://github.com/bitrise-io/bitrise/blob/master/_docs/step-development-guideline.md
+# - Bitrise.yml format spec: https://github.com/bitrise-io/bitrise/blob/master/_docs/bitrise-yml-format-spec.md
+# - Bitrise docs: http://devcenter.bitrise.io/
+# - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
+
+title: |-
+  Unzip
+summary: |
+  Unzip an archive into a directory
+description: |
+  This step takes a zip file as input and unzips its content to a directory.
+website: https://github.com/digitalrmdy/bitrise-step-unzip
+source_code_url: https://github.com/digitalrmdy/bitrise-step-unzip
+support_url: https://github.com/digitalrmdy/bitrise-step-unzip/issues
+host_os_tags:
+  - osx-10.10
+  - ubuntu-16.04
+
+type_tags:
+  - utility
+
+is_requires_admin_user: true
+is_always_run: false
+is_skippable: false
+run_if: ""
+
+toolkit:
+  bash:
+    entry_file: step.sh
+
+inputs:
+  - archive_path:
+    opts:
+      title: Archive path
+      summary: Path to your ZIP file.
+      is_expand: true
+      is_required: true
+  - output_path:
+    opts:
+      title: Output path
+      summary: Path to the directory where your ZIP file should be unpacked.
+      is_expand: true
+      is_required: true
